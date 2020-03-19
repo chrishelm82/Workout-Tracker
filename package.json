@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chrishelm82/Workout-Tracker#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^5.9.5"
   }
 }

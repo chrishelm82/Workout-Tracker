@@ -1,0 +1,22 @@
+{
+  "name": "workout-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrishelm82/Workout-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrishelm82/Workout-Tracker/issues"
+  },
+  "homepage": "https://github.com/chrishelm82/Workout-Tracker#readme",
+  "dependencies": {
+    "mongoose": "^5.9.5"
+  }
+}

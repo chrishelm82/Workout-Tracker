@@ -34,7 +34,7 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
     });
 });
 
-router.get('/api/workout', (req, res) => {
+router.get('/api/workouts', (req, res) => {
   Workout.find({})
     .then(dbWorkout => {
       res.json(dbWorkout);

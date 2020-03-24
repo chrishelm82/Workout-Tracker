@@ -19,7 +19,7 @@ let shouldNavigateAway = false;
 
 init();
 
-async function init() {
+async function init(k) {
   if (
     location.pathname.includes('/exercise') &&
     location.search.split('=')[1] === undefined

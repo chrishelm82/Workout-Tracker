@@ -4,12 +4,12 @@ const Workout = require('../models/workout');
 router.post('/api/workouts', (req, res) => {
   console.log(req.body);
   Workout.create({
-    exercises: []
+    exercises: [],
   })
-    .then(dbWorkout => {
+    .then((dbWorkout) => {
       res.json(dbWorkout);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
     });
 });
@@ -20,39 +20,51 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
     params.id,
     {
-      $push: { exercises: body }
+      $push: { exercises: body },
     },
     { new: true, runValidators: true }
   )
-    .then(dbWorkout => {
+    .then((dbWorkout) => {
       console.log('after promise');
       console.log(dbWorkout);
       res.json(dbWorkout);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
     });
 });
 
 router.get('/api/workouts', (req, res) => {
   Workout.find({})
-    .then(dbWorkout => {
+    .then((dbWorkout) => {
       res.json(dbWorkout);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.put('/api/workouts/:id', function(req, res) {
+router.put('/api/workouts/:id', function (req, res) {
   console.log(req.body);
   db.Workout.where('_id', req.params.id)
     .update({ $push: { exercises: req.body } })
-    .then(function(results) {
+    .then(function (results) {
       res.json(results);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
+    });
+});
+
+router.get('/api/workouts/range', (req, res) => {
+  Workout.find({})
+    .sort({ date: -1 })
+    .limit(7)
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
     });
 });
 
